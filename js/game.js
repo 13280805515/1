@@ -14,10 +14,7 @@ var global_Character= new gameCharacter;
 
 function gameEngine()//游戏控制
 {
-	this.runGame=function()
-	{
-		global.addNewProblem("已知集合A={1，2}，集合B满足A∪B={1，2}，则集合B有______个．<br>A.1,B.2,C.4,D.3",4,2,"∵集合A={1，2}有两个元素，<br>若A∪B={1，2}，则B⊆A<br>故满足条件的集合B有22=4个<br>故答案为：C","Chinese");
-	};
+
 	//var score=new Score();
 	this.getSubjectById=function(Id)//通过ID得到学科
 	{
@@ -45,7 +42,6 @@ function gameEngine()//游戏控制
 				return undefined;
 		}
 	};
-
 	this.tagsList=new Array();
 	//tagsOnClick=[];
 	this.addNewProblem=function(Describe,CountOfNumber,Answer,Solution,Subject)
@@ -61,7 +57,7 @@ function gameEngine()//游戏控制
 		main.appendChild(this.tagsList[this.tagsList.length-1]);
 		this.tagsList[this.tagsList.length-1].onclick=(Answer==i)?()=>{
 				alert("正解！");
-				for(var j=this.tagsList.length-1;j>=this.tagsList.length-5;j--)this.tagsList[j].disabled=true;
+				for(var j=this.tagsList.length-1;j>=this.tagsList.length-CountOfNumber*2;j--)this.tagsList[j].disabled=true;
 				global_Character.GameScore[Subject]++;
 				
 				this.tagsList[this.tagsList.length]=document.createElement("div");
@@ -116,6 +112,9 @@ function gameEngine()//游戏控制
 		var hr=document.createElement("hr");
 		document.getElementById("main").appendChild(hr);
 	}
+	this.selectCharacter=function(CharacterID)
+	{
+		global_Character.Special=global_characterSpecial[CharacterID];
+	}
 }
-var global=new gameEngine();
-global.runGame();
+//global.runGame();

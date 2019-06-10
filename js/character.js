@@ -1,17 +1,17 @@
+function Special(Chinese,English,Mathe,History,Geography,Politics,Physics,Chemistry,Biology)
+{
+		this.Chinese=Chinese;
+		this.English=English;
+		this.Math=Mathe;
+		this.History=History;
+		this.Geography=Geography;
+		this.Politics=Politics;
+		this.Physics=Physics;
+		this.Chemistry=Chemistry;
+		this.Biology=Biology;
+}
 function gameCharacter()
 {
-	this.Special=
-	{
-		Chinese:0,
-		English:0,
-		Math:0,
-		History:0,
-		Geography:0,
-		Politics:0,
-		Physics:0,
-		Chemistry:0,
-		Biology:0,
-		
-	}
+	this.Special=new Special;
 	this.GameScore=new gameScore;
 }
